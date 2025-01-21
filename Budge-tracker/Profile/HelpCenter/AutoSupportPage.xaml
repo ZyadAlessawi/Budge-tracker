@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Profile.HelpCenter.AutoSupportPage"
+             xmlns:local="clr-namespace:Budge_tracker.PagesModel"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+              xmlns:test="clr-namespace:Syncfusion.Maui.Chat;assembly=Syncfusion.Maui.Chat"
+              xmlns:th="clr-namespace:Syncfusion.Maui.Themes;assembly=Syncfusion.Maui.Core"
+             Shell.TabBarIsVisible="False"
+             Title="Support">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary" IconImageSource="notification.png" Clicked="Go_To_NotificationPage"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <th:SyncfusionThemeDictionary>
+            <th:SyncfusionThemeDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <x:String x:Key="SfChatTheme">Custom Theme</x:String>
+                    <Color x:Key="SfChatIncomingMessageBackground">#DFF7E2</Color>
+                    <Color x:Key="SfChatOutgoingMessageBackground">#00D09E</Color>
+                    <x:Double x:Key="SfChatIncomingMessageFontSize">17</x:Double>
+                    <x:Double x:Key="SfChatOutgoingMessageFontSize">17</x:Double>
+                    <Color x:Key="SfChatEditorBackground">#DFF7E2</Color>
+                    <Color x:Key="SfChatEditorStroke">Black</Color>
+                    <Color x:Key="SfChatSendButtonDisabledColor">#DFF7E2</Color>
+                    <Color x:Key="SfChatSendButtonColor">#DFF7E2</Color>
+                    <Color x:Key="SfChatSendButtonBackground">#00D09E</Color>
+                    <Color x:Key="SfChatDisabledSendButtonBackground">#DFF7E2</Color>
+                </ResourceDictionary>
+            </th:SyncfusionThemeDictionary.MergedDictionaries>
+        </th:SyncfusionThemeDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:Auto_Support/>
+    </ContentPage.BindingContext>
+    
+
+    <StackLayout BackgroundColor="#00D09E">
+        <Border 
+    
+     BackgroundColor="White"
+     Padding="10,25,10,0"
+     HorizontalOptions="FillAndExpand"
+     VerticalOptions="FillAndExpand"
+     Margin="0">
+
+            <Border.StrokeShape>
+
+                <RoundRectangle CornerRadius="50,50,0,0" />
+
+            </Border.StrokeShape>
+
+            <!--<ScrollView>-->
+            <Grid RowDefinitions="*,90">
+                <!--<StackLayout >-->
+                    <ScrollView Grid.Row="0">
+                    <StackLayout >
+                        <test:SfChat x:Name="sfChat"
+                                     Grid.Row="0"
+                                     Grid.ColumnSpan="2"
+                                     Grid.Column="0"
+                                     Messages="{Binding Messages}"                          
+                                     CurrentUser="{Binding CurrentUser}"
+                                     ShowTimeBreak="True"
+                                     ShowMessageInputView="False"
+                                     />
+                    </StackLayout>
+                        </ScrollView>
+                <!--</StackLayout>-->
+                <StackLayout Grid.Row="1">
+                    <Border
+
+                        Padding="5"
+                        Margin="5"
+                        BackgroundColor="#FFEBEB">
+                        <Grid               
+                           ColumnDefinitions="*,Auto"
+                           ColumnSpacing="10">
+                            <Entry 
+                                PlaceholderColor="Black"
+                                TextColor="Black"
+       
+                             Placeholder="Enter text here"
+                            Keyboard="Numeric"
+                            x:Name="chatText"/>
+                            <ImageButton
+                                 Grid.Column="1"
+                                 Source="send.png"
+                                 Margin="10"
+                                 HeightRequest="30"
+                                 WidthRequest="30"
+        
+                            Clicked="Send">
+                            </ImageButton>
+                        </Grid>
+                        <Border.Shadow>
+                            <Shadow 
+                               Brush="Black"
+                               Opacity="0.4"
+                               Offset="8,2"
+                               Radius="5"/>
+                        </Border.Shadow>
+                    </Border>
+                </StackLayout>
+            </Grid>
+        </Border>
+
+    </StackLayout>
+
+
+</ContentPage>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Categories.Add_Expenses"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#00D09E"
+              xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib">
+    <Shell.TitleView>
+        <Label 
+        Text="Add Expenses" 
+        VerticalTextAlignment="Center" 
+        HorizontalTextAlignment="Center" 
+        FontSize="20"
+        FontAttributes="Bold"/>
+    </Shell.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                 FontFamily="Icon"
+                 Glyph="{x:Static Icon:IconFont.Bell}"
+                 Size="30"
+                 Color="{AppThemeBinding Light=Black, Dark=White}"
+                 />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+                 Margin="0,0,0,0"
+                 Grid.Row="1"
+                 Grid.RowSpan="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+                 CornerRadius="50,50,0,0"/>
+        
+        <inputLayout:SfTextInputLayout Hint="Date" 
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <DatePicker x:Name="Selected_Date_Picker" />
+            
+        </inputLayout:SfTextInputLayout>
+
+        <inputLayout:SfTextInputLayout Hint="Select the category" 
+                                Grid.Row="3" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Picker 
+                 x:Name="Picker_Selected_Category"
+                 SelectedItem="Selected_Category">
+                <Picker.Items FontSize="20" >
+                    <x:String>Food</x:String>
+                    <x:String>Transport</x:String>
+                    <x:String>Medicine</x:String>
+                    <x:String>Groceries</x:String>
+                    <x:String>Rent</x:String>
+                    <x:String>Gifts</x:String>
+                    <x:String>Entertainment</x:String>
+                    <x:String>Wedding</x:String>
+                    <x:String>Car</x:String>
+                    <x:String>House</x:String>
+                    <x:String>Travel</x:String>
+                </Picker.Items>
+            </Picker>
+
+        </inputLayout:SfTextInputLayout>
+        
+        <inputLayout:SfTextInputLayout Hint="Amount" 
+                                Grid.Row="4" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry x:Name="entry_Amount_Price" Keyboard="Numeric"/>
+            
+        </inputLayout:SfTextInputLayout>
+        
+        <inputLayout:SfTextInputLayout Hint="Expense Title" 
+                                Grid.Row="5" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry x:Name="entry_Expense_Title" />
+        </inputLayout:SfTextInputLayout>
+
+
+        <Button
+           Text="Save"
+           HorizontalOptions="CenterAndExpand"
+           BackgroundColor="#00D09E"
+           HeightRequest="60"
+            Grid.Row="7"
+            Grid.Column="1"
+           WidthRequest="200"
+           Clicked="Save_Expenses"/>
+
+    </Grid>
+    <!--<StackLayout BackgroundColor="#00D09E">
+
+
+        <Border 
+  
+BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+Padding="30,35,30,0"
+HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand"
+Margin="0">
+
+            <Border.StrokeShape>
+
+                <RoundRectangle CornerRadius="50,50,0,0" />
+
+            </Border.StrokeShape>
+
+
+            <StackLayout>
+                <Label 
+                    Text="Date"
+                    FontSize="20"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <DatePicker   
+                             FontSize="17"
+                             BackgroundColor="#DFF7E2"
+                             Margin="0,0,0,20"
+                             x:Name="Selected_Date_Picker"
+                    TextColor="Black"/>
+
+
+                <Label 
+                    Text="Category"
+             FontSize="20" 
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                
+                <Picker 
+            Title="Select the category" 
+                    TitleColor="Black"
+            FontSize="17"
+                    BackgroundColor="#DFF7E2"
+                    Margin="0,0,0,20"
+                    TextColor="Black"
+                    x:Name="Picker_Selected_Category"
+                    SelectedItem="Selected_Category">
+                    <Picker.Items FontSize="17" >
+                        <x:String>Food</x:String>
+                        <x:String>Transport</x:String>
+                        <x:String>Medicine</x:String>
+                        <x:String>Groceries</x:String>
+                        <x:String>Rent</x:String>
+                        <x:String>Gifts</x:String>
+                        <x:String>Entertainment</x:String>
+                        <x:String>Wedding</x:String>
+                        <x:String>Car</x:String>
+                        <x:String>House</x:String>
+                        <x:String>Travel</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label 
+                    Text="Amount"
+                    FontSize="20"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Entry 
+                    Keyboard="Numeric"
+                    Placeholder="$ $ $"
+                    FontSize="17"
+                    BackgroundColor="#DFF7E2"
+                    Margin="0,0,0,20"
+                    x:Name="entry_Amount_Price"
+                    TextColor="Black"
+PlaceholderColor="Black"/>
+
+                <Label 
+                    Text="Expense Title"
+                    FontSize="20"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <Entry 
+                    Keyboard="Text"
+                    FontSize="17"
+                    Placeholder="Example"
+                    BackgroundColor="#DFF7E2"
+                    x:Name="entry_Expense_Title"
+                    TextColor="Black"
+PlaceholderColor="Black"/>
+
+
+                <Button
+                    Text="Save"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#00D09E"
+                    HeightRequest="60"
+                    WidthRequest="200"
+                    Margin="0,60,0,0"
+                    Clicked="Save_Expenses"/>
+            </StackLayout>
+
+        </Border>
+
+    </StackLayout>-->
+
+</ContentPage>

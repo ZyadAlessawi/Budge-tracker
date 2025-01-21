@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             x:Class="Budge_tracker.Profile.Security.Change_pinPage"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             BackgroundColor="#00D09E"
+             Shell.TabBarIsVisible="False"
+             Title="Profile">
+
+
+    <Shell.TitleView>
+        <Label 
+ Text="Change Pin" 
+ VerticalTextAlignment="Center" 
+ HorizontalTextAlignment="Center" 
+ FontSize="20"
+ FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.Bell}"
+            Size="30"
+            Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView 
+   BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+    Margin="0,0,0,0"
+    Grid.Row="1"
+   Grid.Column="0"
+   Grid.ColumnSpan="3"
+    Grid.RowSpan="7"
+    CornerRadius="50,50,0,0"/>
+
+        <inputLayout:SfTextInputLayout Hint="Current Pin" 
+                                       EnablePasswordVisibilityToggle="True"
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry Keyboard="Numeric" />
+        </inputLayout:SfTextInputLayout>
+        
+        <inputLayout:SfTextInputLayout Hint="New Pin" 
+                                        EnablePasswordVisibilityToggle="True"
+                                Grid.Row="3" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry Keyboard="Numeric" />
+        </inputLayout:SfTextInputLayout>
+
+        <inputLayout:SfTextInputLayout Hint="Confirm Pin" 
+                                        EnablePasswordVisibilityToggle="True"
+                                Grid.Row="4" 
+                                Grid.Column="1"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry Keyboard="Numeric" />
+        </inputLayout:SfTextInputLayout>
+
+        <Button 
+            Text="Change Pin"
+            Grid.Row="5"
+            Grid.Column="1"
+            HeightRequest="50" 
+            WidthRequest="190" 
+            HorizontalOptions="Center" 
+            BackgroundColor="#00D09E"
+            CornerRadius="20"
+            FontSize="20"
+            Clicked="Change_Pin"/>
+
+    </Grid>
+    <!--<StackLayout BackgroundColor="#00D09E">
+        <Border 
+    
+     BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+     Padding="10,25,10,0"
+     HorizontalOptions="FillAndExpand"
+     VerticalOptions="FillAndExpand"
+     Margin="0">
+
+            <Border.StrokeShape>
+
+                <RoundRectangle CornerRadius="50,50,0,0" />
+
+            </Border.StrokeShape>
+
+            <VerticalStackLayout>
+                <Label 
+                     Text="Current Pin" 
+                    FontSize="17"
+                    Margin="0,30,0,10"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <Entry 
+                    IsPassword="True"  
+                    BackgroundColor="#DFF7E2"
+                    CharacterSpacing="5"
+                    Placeholder="* * * * * * *"
+                    Margin="20,0,20,0"
+                    TextColor="Black"
+                    PlaceholderColor="Black"/>
+
+                <Label 
+                     Text="New Pin" 
+                    FontSize="17"
+                    Margin="0,30,0,10"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <Entry 
+                     IsPassword="True"  
+                     BackgroundColor="#DFF7E2"
+                     CharacterSpacing="5"
+                     Placeholder="* * * * * * *"
+                     Margin="20,0,20,0"
+                    TextColor="Black"
+                    PlaceholderColor="Black"/>
+
+                <Label 
+                   Text="Confirm Pin" 
+                    FontSize="17"
+                    Margin="0,30,0,10"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <Entry 
+                      IsPassword="True"  
+                      BackgroundColor="#DFF7E2"
+                     CharacterSpacing="5"
+                     Placeholder="* * * * * * *"
+                     Margin="20,0,20,0"
+                    TextColor="Black"
+                    PlaceholderColor="Black"/>
+
+
+                <Button 
+                    Text="Change Pin"
+                    HeightRequest="50" 
+                    WidthRequest="190" 
+                    HorizontalOptions="Center" 
+                    BackgroundColor="#00D09E"
+                    CornerRadius="20"
+                    FontSize="20"
+                    Clicked="Change_Pin"
+                    Margin="0,50,0,10"/>
+
+            </VerticalStackLayout>
+
+        </Border>
+
+    </StackLayout>-->
+
+   
+</ContentPage>

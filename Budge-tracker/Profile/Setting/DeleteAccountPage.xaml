@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Profile.Setting.DeleteAccountPage"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             BackgroundColor="#00D09E"
+             Shell.TabBarIsVisible="False"
+             Title="Delete Account">
+
+    <Shell.TitleView>
+        <Label 
+  Text="Delete Account" 
+  VerticalTextAlignment="Center" 
+  HorizontalTextAlignment="Center" 
+  FontSize="20"
+  FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+             FontFamily="Icon"
+             Glyph="{x:Static Icon:IconFont.Bell}"
+             Size="30"
+             Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView 
+   BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+    Margin="0,0,0,0"
+    Grid.Row="1"
+   Grid.Column="0"
+   Grid.ColumnSpan="5"
+    Grid.RowSpan="11"
+    CornerRadius="50,50,0,0"/>
+
+        <Label 
+            Text="Are you sure you want to delete your account?"
+               FontSize="20"
+               HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+               Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="4"/>
+
+        <BoxView 
+           BackgroundColor="#DFF7E2" 
+            Grid.Row="3"
+           Grid.Column="2"
+            Grid.RowSpan="5"
+            CornerRadius="30"/>
+
+        <Label 
+            Text="This action will permanently delete all of your data, and you will not be able to recover it. Please keep the following in mind before proceeding:"
+                FontSize="15"
+                TextColor="Black"
+               Grid.Row="4"
+               Grid.Column="2"/>
+
+        <Label
+           Text="- All your expenses, income and associated transactions will be eliminated."
+            FontSize="15"
+           TextColor="Black"
+            Grid.Row="5"
+            Grid.Column="2"/>
+
+        <Label
+         Text="- You will not be able to access your account or any related information."
+         FontSize="15"
+         TextColor="Black"
+            Grid.Row="6"
+            Grid.Column="2"/>
+
+        <Label
+         Text="- This action cannot be undone."
+         FontSize="15"
+         TextColor="Black"
+            Grid.Row="7"
+            Grid.Column="2"/>
+
+        <inputLayout:SfTextInputLayout Hint="Enter Your Password" 
+                                Grid.Row="8" 
+                                       EnablePasswordVisibilityToggle="True"
+                                       HelperText="Please enter your password to confirm deletion of your account."
+                                Grid.Column="1"
+                                       Grid.ColumnSpan="3"
+                                ContainerType="Outlined"
+                                OutlineCornerRadius="20"
+                                HeightRequest="80">
+
+            <Entry x:Name="entry_delete_account" />
+        </inputLayout:SfTextInputLayout>
+
+        <Button 
+            Text="yes, Delete account"
+            HeightRequest="50" 
+            WidthRequest="190" 
+            BackgroundColor="#00D09E"
+            Grid.Row="9"
+            Grid.Column="2"
+            CornerRadius="20"
+            FontSize="20"
+            Clicked="Delete_account"
+            TextColor="#093030"/>
+
+        <Button 
+           Text="Cancel"
+           HeightRequest="50" 
+           WidthRequest="190" 
+           BackgroundColor="#DFF7E2"
+            Grid.Row="10"
+            Grid.Column="2"
+           CornerRadius="20"
+           FontSize="20"
+           Clicked="Go_To_Settings"/>
+
+    </Grid>
+</ContentPage>

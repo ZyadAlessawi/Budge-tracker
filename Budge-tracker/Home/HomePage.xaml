@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shimmer="clr-namespace:Syncfusion.Maui.Toolkit.Shimmer;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             x:Class="Budge_tracker.Home.HomePage"
+             xmlns:local="clr-namespace:Budge_tracker.Models"
+             BackgroundColor="#00D09E"
+             x:DataType="local:Home_Key">
+
+   
+
+    <Shell.TitleView>
+        <Label 
+        Text="Hi, Welcome Back" 
+        VerticalTextAlignment="Center" 
+        HorizontalTextAlignment="Start" 
+        FontSize="20"
+        FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="Icon"
+                    Glyph="{x:Static Icon:IconFont.Bell}"
+                    Size="30"
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+                    />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <RefreshView 
+Refreshing="RefreshView_Refreshing">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Text="Total Balance" 
+                TextColor="#093030"  
+                FontSize="20" 
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                x:Name="Label_TotalSalary" 
+                TextColor="#093030" 
+                FontSize="20"
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalTextAlignment="Center"/>
+
+            <Label 
+                Text="Total Expense" 
+                TextColor="#093030"  
+                FontSize="20" 
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"/>
+
+            <Label 
+                x:Name="Label_TotalExpenses" 
+                TextColor="#093030"  
+                FontSize="20"
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"/>
+
+            <BoxView 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+                 Margin="0,0,0,0"
+                 Grid.Row="3"
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                 CornerRadius="50,50,0,0"/>
+
+            <CollectionView x:Name="cv"
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2">
+
+                <CollectionView.EmptyView>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="Icon"
+                                    Glyph="{x:Static Icon:IconFont.Exclamation}"
+                                    Size="200"
+                                    Color="{AppThemeBinding Light=Black, Dark=White}"/>
+                            </Image.Source>
+                        </Image>
+                        <Label
+                                            Text="We Couldn't Find Any Items"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="#DFF7E2"
+                                Margin="10"
+                                Padding="10">
+                            <Border.StrokeShape>
+
+                                <RoundRectangle CornerRadius="20" />
+
+                            </Border.StrokeShape>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image 
+                                   HeightRequest="50"
+                                     Grid.Column="0">
+                                    <Image.Source>
+                                        <FontImageSource
+                                           FontFamily="Icon"
+                                           Glyph="{Binding Img}"
+                                           Size="200"
+                                           Color="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                                    </Image.Source>
+                                </Image>
+
+                                <Label 
+                                    Text="{Binding Title}"
+                                    x:Name="label_Titel"
+                                    FontSize="20" 
+                                     VerticalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                     TextColor="Black"
+                                    Grid.Column="1"/>
+
+                                <Label 
+                                   Text="{Binding  TotalExpense,StringFormat='-{0:C}'}"
+                                   x:Name="LabelFoodsPrice"
+                                   FontSize="20" 
+                                    VerticalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    TextColor="Black"
+                                    Grid.Column="2"/>
+
+                            </Grid>
+
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <shimmer:SfShimmer VerticalOptions="Fill"
+                          Type="SquarePersona"
+                           Fill="#DFF7E2"
+                           WaveColor="#00D09E"
+                          RepeatCount="5"
+                          x:Name="shimmeractive"
+                         Grid.Row="4"
+                         Grid.RowSpan="3"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2">
+                
+            </shimmer:SfShimmer>
+
+        </Grid>
+        
+    </RefreshView>
+</ContentPage>

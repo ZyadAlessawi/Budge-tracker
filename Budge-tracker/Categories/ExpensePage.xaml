@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Categories.ExpensePage"
+              xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+              xmlns:shimmer="clr-namespace:Syncfusion.Maui.Toolkit.Shimmer;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:local="clr-namespace:Budge_tracker.Models"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#00D09E"
+             xmlns:localiz="clr-namespace:Essential_Lib.Localization;assembly=Essential_Lib">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                 FontFamily="Icon"
+                 Glyph="{x:Static Icon:IconFont.Bell}"
+                 Size="30"
+                 Color="{AppThemeBinding Light=Black, Dark=White}"
+                 />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <RefreshView 
+Refreshing="RefreshView_Refreshing" >
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="90"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                x:Name="Label_TotalPrice"
+                FontSize="20"
+                HorizontalTextAlignment="Center"/>
+
+            <BoxView 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+                 Margin="0,0,0,0"
+                 Grid.Row="1"
+                 Grid.RowSpan="3"
+                 CornerRadius="50,50,0,0"/>
+
+            <CollectionView 
+                Grid.Row="2"
+                x:Name="ListCarData" 
+                SelectionMode="Multiple">
+
+                <CollectionView.EmptyView>
+                    <StackLayout HorizontalOptions="Center"
+ VerticalOptions="Center">
+
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource
+    FontFamily="Icon"
+    Glyph="{x:Static Icon:IconFont.Exclamation}"
+    Size="200"
+    Color="{AppThemeBinding Light=Black, Dark=White}"/>
+                            </Image.Source>
+                        </Image>
+                        <Label
+            Text="We Couldn't Find Any Items"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate >
+
+                    <DataTemplate  x:DataType="local:Add_Expenses_Key">
+
+                        <Border BackgroundColor="#DFF7E2"
+                                    Margin="10"
+                                    Padding="10">
+                            <Border.StrokeShape>
+
+                                <RoundRectangle CornerRadius="20" />
+
+                            </Border.StrokeShape>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <ImageButton
+                                    IsVisible="False"
+                                    x:Name="CleanButton"
+                                    HeightRequest="5"
+                                    WidthRequest="60"
+                                    CornerRadius="10"
+                                    Clicked="Clean_Button"
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2">
+                                    <ImageButton.Source>
+                                        <FontImageSource FontFamily="Icon"
+                                                         Glyph="{x:Static Icon:IconFont.Delete}"
+                                                         Size="10"
+                                                         Color="{AppThemeBinding Light=Black, Dark=White}"/>
+                                    </ImageButton.Source>
+                                </ImageButton>
+
+                                <Image 
+                                      IsVisible="True"
+                                      x:Name="imagesource"
+                                      HeightRequest="60"
+                                      Margin="0,0,10,0"
+                                      Grid.Column="0"
+                                      Grid.Row="0"
+                                      Grid.RowSpan="2">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="Icon"
+                                            Glyph="{Binding Image}"
+                                            Size="140"
+                                            Color="{AppThemeBinding Light=Black, Dark=White}"
+                                            />
+                                    </Image.Source>
+                                </Image>
+
+
+                                <Label 
+                                   TextColor="Black"
+                                   Text="{Binding Title}" 
+                                   FontSize="20" 
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+                                <Label 
+                                   TextColor="Black"
+                                   Text="{Binding SelectedDate,Converter={StaticResource DateConverter},StringFormat='{0:d}'}" 
+                                   FontSize="17" 
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+
+                                <Label 
+                                        TextColor="Black"
+                                        Text="{Binding AmountPrice ,StringFormat='-{0:C}'}" 
+                                        FontSize="20" 
+                                        x:Name="AmountCalc"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"/>
+                            </Grid>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#6DB6FE"/>
+                                            <Setter TargetName="CleanButton" Property="ImageButton.IsVisible" Value="True"/>
+                                            <Setter TargetName="imagesource" Property="Image.IsVisible" Value="False"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#DFF7E2"/>
+                                            <Setter TargetName="CleanButton" Property="ImageButton.IsVisible" Value="False"/>
+                                            <Setter TargetName="imagesource" Property="Image.IsVisible" Value="True"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            <Button 
+                Grid.Row="3"
+                Text="Add Expenses"
+                HorizontalOptions="Center"
+                BackgroundColor="#00D09E"
+                HeightRequest="60"
+                WidthRequest="200"
+                Clicked="Go_To_Expenses"/>
+
+            <shimmer:SfShimmer VerticalOptions="Fill"
+                          Type="SquarePersona"
+                           Fill="#DFF7E2"
+                           WaveColor="#00D09E"
+                          RepeatCount="5"
+                          x:Name="shimmeractive"
+                         Grid.Row="2"
+                         Grid.Column="0">
+
+            </shimmer:SfShimmer>
+
+
+        </Grid>
+
+    </RefreshView>
+</ContentPage>

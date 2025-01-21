@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+            xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="Budge_tracker.Profile.ProfilePage" 
+             BackgroundColor="#00D09E"
+             Title="Profile"
+             >
+
+    <Shell.TitleView>
+        <Label 
+    Text="Profile" 
+    VerticalTextAlignment="Center" 
+    HorizontalTextAlignment="Center" 
+    FontSize="20"
+    FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+               FontFamily="Icon"
+               Glyph="{x:Static Icon:IconFont.Bell}"
+               Size="30"
+               Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <BoxView 
+     BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+      Margin="0,0,0,0"
+      Grid.Row="1"
+     Grid.Column="0"
+     Grid.ColumnSpan="3"
+      Grid.RowSpan="8"
+      CornerRadius="50,50,0,0"/>
+
+        <Image 
+            Grid.Column="1"
+            Grid.Row="1"
+     HeightRequest="100" 
+     WidthRequest="100" 
+     HorizontalOptions="Center" 
+     x:Name="ImageBox">
+            <Image.Source>
+                <FontImageSource 
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+                    FontFamily="Icon"
+                    Size="80"
+                    x:Name="imagefont"/>
+            </Image.Source>
+        </Image>
+
+        <Label 
+            Grid.Column="1"
+             Grid.Row="2"
+     FontSize="20"
+     HorizontalOptions="Center" 
+     x:Name="lapel_Show_UserName"/>
+
+
+        <buttons:SfButton 
+    x:Name="Food"
+    Text="Edit Profile"
+            Clicked="Go_To_EditProfilePage"
+    Grid.Column="0" 
+    Grid.Row="3"
+    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+    HorizontalOptions="FillAndExpand"
+    ShowIcon="True" 
+    ImageSize="70"
+    FontSize="20"
+    Background="{AppThemeBinding Light=White, Dark=Black}"
+    ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.Account}"
+            Size="150"
+            Color="{AppThemeBinding Light=Black, Dark=White}"
+            />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+    Text="Security"
+            Clicked="Go_To_SecurityPage"
+    Grid.Column="0" 
+    Grid.Row="4"
+    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+    HorizontalOptions="FillAndExpand"
+    ShowIcon="True" 
+    ImageSize="70"
+    FontSize="20"
+    Background="{AppThemeBinding Light=White, Dark=Black}"
+    ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.Security}"
+            Size="150"
+            Color="{AppThemeBinding Light=Black, Dark=White}"
+            />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+    Text="Setting"
+            Clicked="Go_To_SettingPage"
+    Grid.Column="0" 
+    Grid.Row="5"
+    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+    HorizontalOptions="FillAndExpand"
+    ShowIcon="True" 
+    ImageSize="70"
+    FontSize="20"
+    Background="{AppThemeBinding Light=White, Dark=Black}"
+    ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.AccountSettings}"
+            Size="150"
+            Color="{AppThemeBinding Light=Black, Dark=White}"
+            />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+    Text="Help"
+            Clicked="Go_To_HelpPage"
+    Grid.Column="0" 
+    Grid.Row="6"
+    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+    HorizontalOptions="FillAndExpand"
+    ShowIcon="True" 
+    ImageSize="70"
+    FontSize="20"
+    Background="{AppThemeBinding Light=White, Dark=Black}"
+    ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.FaceAgent}"
+            Size="150"
+            Color="{AppThemeBinding Light=Black, Dark=White}"
+            />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+    Text="Logout"
+            Clicked="Logout"
+            Grid.Column="0" 
+    Grid.Row="7"
+    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+    HorizontalOptions="FillAndExpand"
+    ShowIcon="True" 
+    ImageSize="70"
+    FontSize="20"
+    Background="{AppThemeBinding Light=White, Dark=Black}"
+    ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.Logout}"
+            Size="150"
+            Color="{AppThemeBinding Light=Black, Dark=White}"
+            />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+
+    </Grid>
+    
+</ContentPage>

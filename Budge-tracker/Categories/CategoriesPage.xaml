@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             x:Class="Budge_tracker.Categories.CategoriesPage"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Toolkit.Charts;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             BackgroundColor="#00D09E">
+
+    <Shell.TitleView>
+        <Label 
+        Text="Categories" 
+        VerticalTextAlignment="Center" 
+        HorizontalTextAlignment="Center" 
+        FontSize="20"
+        FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                   FontFamily="Icon"
+                   Glyph="{x:Static Icon:IconFont.Bell}"
+                   Size="30"
+                   Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <chart:SfCartesianChart Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+
+                 <chart:SfCartesianChart.Title>
+                     <Label Text="Categories"/>
+                 </chart:SfCartesianChart.Title>
+                 
+                 <chart:SfCartesianChart.Legend>
+                     <chart:ChartLegend/>
+                 </chart:SfCartesianChart.Legend>
+                 
+                 <chart:SfCartesianChart.XAxes>
+                     <chart:CategoryAxis>
+                 
+                     </chart:CategoryAxis>
+                 </chart:SfCartesianChart.XAxes>
+                 
+                 
+                 <chart:SfCartesianChart.YAxes>
+                     <chart:NumericalAxis>
+                 
+                     </chart:NumericalAxis>
+                 </chart:SfCartesianChart.YAxes>
+                 
+                 <chart:SfCartesianChart.Series>
+                 
+                     <chart:ColumnSeries 
+                         Label="Income"
+                         x:Name="columnSeries"
+                         EnableTooltip="True"
+                         ShowDataLabels="True"
+                         Fill="#DFF7E2"
+                         Width="0.35"
+                         XBindingPath="Name" 
+                         YBindingPath="Total">
+
+
+                    <chart:ColumnSeries.DataLabelSettings>
+                        <chart:CartesianDataLabelSettings LabelPlacement="Inner"/>
+                    </chart:ColumnSeries.DataLabelSettings>
+                </chart:ColumnSeries>
+                 
+                 
+                 </chart:SfCartesianChart.Series>
+
+            </chart:SfCartesianChart>
+
+
+            <BoxView 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+                 Margin="0,0,0,0"
+                 Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                 Grid.RowSpan="5"
+                 CornerRadius="50,50,0,0"/>
+
+
+        <buttons:SfButton 
+            x:Name="Food"
+            Text="Food"
+            Grid.Column="0" 
+            Grid.Row="3"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Food}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Transport"
+            Text="Transport"
+             Grid.Column="1"
+            Grid.Row="3"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Bus}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Medicine"
+            Text="Medicine"
+             Grid.Column="2"
+            Grid.Row="3"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Medication}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Groceries"
+            Text="Groceries"
+             Grid.Column="0"
+            Grid.Row="4"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Carrot}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Rent"
+            Text="Rent"
+             Grid.Column="1"
+            Grid.Row="4"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Key}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Gifts"
+            Text="Gifts"
+             Grid.Column="2"
+            Grid.Row="4"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Gift}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+            x:Name="Savings"
+            Text="Savings"
+             Grid.Column="0"
+            Grid.Row="5"
+            Clicked="Savings_PopUp"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Cash}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+             x:Name="Entertainment"
+            Text="Entertainment"
+             Grid.Column="1"
+            Grid.Row="5"
+            Clicked="Go_To_ExpensePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Ticket}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+             x:Name="More"
+            Text="More"
+             Grid.Column="2"
+            Grid.Row="5"
+            Clicked="Go_To_MorePage"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            HorizontalOptions="Center"
+            ShowIcon="True" 
+            ImageSize="70"
+            FontSize="20"
+            Background="{AppThemeBinding Light=White, Dark=Black}"
+            ImageAlignment="Top">
+            <buttons:SfButton.ImageSource>
+                    <FontImageSource
+                       FontFamily="Icon"
+                       Glyph="{x:Static Icon:IconFont.Plus}"
+                       Size="150"
+                       Color="{AppThemeBinding Light=Black, Dark=White}"
+                       />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        </Grid>
+
+</ContentPage>

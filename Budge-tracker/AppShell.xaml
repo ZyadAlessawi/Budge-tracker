@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Budge_tracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.FlyoutBehavior="Disabled"
+    NavigationPage.HasNavigationBar="True"
+    xmlns:local3="clr-namespace:Budge_tracker.Home"
+    xmlns:local1="clr-namespace:Budge_tracker.Analysis"
+    xmlns:local5="clr-namespace:Budge_tracker.Transaction"
+    xmlns:local2="clr-namespace:Budge_tracker.Categories"
+    xmlns:local4="clr-namespace:Budge_tracker.Profile"
+    NavigationPage.HasBackButton="True">
+
+
+
+
+   
+
+    <TabBar 
+        Route="tabbar" 
+        Shell.TabBarBackgroundColor="#DFF7E2" 
+        Shell.TabBarForegroundColor="#00D09E"
+        Shell.TabBarUnselectedColor="#0E3E3E">
+        
+        
+        <Tab 
+            Icon="home.png">
+
+            <ShellContent  
+                ContentTemplate="{DataTemplate local3:HomePage}"
+                Route="homepage"/>
+
+
+        </Tab>
+
+        
+        
+        <Tab 
+            Icon="analysis.png">
+            
+            <ShellContent  
+                ContentTemplate="{DataTemplate local1:AnalysisPage}"
+                Route="analysispage" />
+            
+        </Tab>
+
+        
+        
+        <Tab 
+            Icon="transaction.png" >
+            
+            <ShellContent
+                ContentTemplate="{DataTemplate local5:TransactionPage}"
+                Route="transactionpage" />
+            
+        </Tab>
+
+        
+        
+        <Tab 
+            Icon="categorize.png">
+            
+            <ShellContent
+                ContentTemplate="{DataTemplate local2:CategoriesPage}"
+                Route="categoriespage" />
+            
+        </Tab>
+
+        
+        
+        <Tab
+            Icon="account.png" >
+            
+            <ShellContent 
+                ContentTemplate="{DataTemplate local4:ProfilePage}"
+                Route="profilepage"/>
+            
+        </Tab>
+
+    </TabBar>
+
+</Shell>

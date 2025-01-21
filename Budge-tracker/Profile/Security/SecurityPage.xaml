@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+              xmlns:bottomSheet="clr-namespace:Syncfusion.Maui.Toolkit.BottomSheet;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             Shell.TabBarIsVisible="False"
+             x:Class="Budge_tracker.Profile.Security.SecurityPage"
+             BackgroundColor="#00D09E"
+             Title="Security">
+
+    <Shell.TitleView>
+        <Label 
+    Text="Security" 
+    VerticalTextAlignment="Center" 
+    HorizontalTextAlignment="Center" 
+    FontSize="20"
+    FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+               FontFamily="Icon"
+               Glyph="{x:Static Icon:IconFont.Bell}"
+               Size="30"
+               Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Resources>
+        <Style x:Key="BaseProfileButtonStyle"
+        TargetType="Button">
+
+            <Setter Property="ContentLayout" Value="Left"/>
+
+            <Setter Property="CornerRadius" Value="10"/>
+
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=Black}"/>
+
+            <Setter Property="FontSize" Value="20"/>
+
+            <Setter Property="FontAttributes" Value="Bold"/>
+
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView 
+   BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+    Margin="0,0,0,0"
+    Grid.Row="1"
+   Grid.Column="0"
+   Grid.ColumnSpan="3"
+    Grid.RowSpan="9"
+    CornerRadius="50,50,0,0"/>
+
+        <Button 
+          Text="Change Pin" 
+            Grid.Row="2"
+          Clicked="Go_To_Change_PinPage"
+          Style="{StaticResource BaseProfileButtonStyle}"/>
+
+
+        <BoxView Color="LightGray" HeightRequest="2" Grid.Row="3"/>
+
+        <Button 
+           Text="FingerPrint" 
+            Grid.Row="4"
+           Clicked="Go_To_FingerPage"
+           Style="{StaticResource BaseProfileButtonStyle}"/>
+
+        <BoxView Color="LightGray" HeightRequest="2" Grid.Row="5"/>
+
+        <Button 
+           Text="Terms and Conditions" 
+            Grid.Row="6"
+           Clicked="Go_To_TermsPage"
+           Style="{StaticResource BaseProfileButtonStyle}"/>
+
+        <BoxView Color="LightGray" HeightRequest="2" Grid.Row="7"/>
+
+        <bottomSheet:SfBottomSheet 
+            x:Name="bottomSheet"
+            Grid.Row="8"  
+            EnableSwiping="True"
+            CornerRadius="15, 15, 0, 0"
+            HalfExpandedRatio="1"
+            ContentPadding="10" >
+            <bottomSheet:SfBottomSheet.BottomSheetContent>
+                <StackLayout Spacing="30">
+                    <buttons:SfButton 
+                        Text="Add a Fingerprint"
+                        Clicked="Add_Fingerprint"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                        HorizontalOptions="FillAndExpand"
+                        ShowIcon="True" 
+                        ImageSize="50"
+                        FontSize="20"
+                        Background="{AppThemeBinding Light=White, Dark=Black}"
+                        ImageAlignment="Left">
+                        <buttons:SfButton.ImageSource>
+                            <FontImageSource
+                               FontFamily="Icon"
+                               Glyph="{x:Static Icon:IconFont.Fingerprint}"
+                               Size="100"
+                               Color="{AppThemeBinding Light=Black, Dark=White}"
+                               />
+                        </buttons:SfButton.ImageSource>
+                    </buttons:SfButton>
+                    
+                    <buttons:SfButton 
+                        Text="Remove Fingerprint"
+                        Clicked="Remove_Your_Fingerprint"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                        HorizontalOptions="FillAndExpand"
+                        ShowIcon="True" 
+                        ImageSize="50"
+                        FontSize="20"
+                        Background="{AppThemeBinding Light=White, Dark=Black}"
+                        ImageAlignment="Left">
+                        <buttons:SfButton.ImageSource>
+                            <FontImageSource
+                               FontFamily="Icon"
+                               Glyph="{x:Static Icon:IconFont.Delete}"
+                               Size="100"
+                               Color="{AppThemeBinding Light=Black, Dark=White}"
+                               />
+                        </buttons:SfButton.ImageSource>
+                    </buttons:SfButton>
+                </StackLayout>
+            </bottomSheet:SfBottomSheet.BottomSheetContent>
+        </bottomSheet:SfBottomSheet>
+
+    </Grid>
+</ContentPage>

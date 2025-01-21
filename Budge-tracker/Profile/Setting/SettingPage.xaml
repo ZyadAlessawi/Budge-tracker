@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             x:Class="Budge_tracker.Profile.Setting.SettingPage"
+             BackgroundColor="#00D09E"
+             Shell.TabBarIsVisible="False"
+             Title="Settings">
+
+    <Shell.TitleView>
+        <Label 
+ Text="Settings" 
+ VerticalTextAlignment="Center" 
+ HorizontalTextAlignment="Center" 
+ FontSize="20"
+ FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+            FontFamily="Icon"
+            Glyph="{x:Static Icon:IconFont.Bell}"
+            Size="30"
+            Color="{AppThemeBinding Light=Black, Dark=White}"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView 
+    BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+     Margin="0,0,0,0"
+     Grid.Row="1"
+    Grid.Column="0"
+    Grid.ColumnSpan="3"
+     Grid.RowSpan="8"
+     CornerRadius="50,50,0,0"/>
+
+        <buttons:SfButton 
+Text="Notification Settings"
+Grid.Column="0" 
+Grid.Row="2"
+TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            Clicked="Go_To_NotificationSettingsPage"
+HorizontalOptions="FillAndExpand"
+ShowIcon="True" 
+ImageSize="40"
+FontSize="20"
+Background="{AppThemeBinding Light=White, Dark=Black}"
+ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+        FontFamily="Icon"
+        Glyph="{x:Static Icon:IconFont.BellAlert}"
+        Size="100"
+        Color="{AppThemeBinding Light=Black, Dark=White}"
+        />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+Text="Password Settings"
+Grid.Column="0" 
+Grid.Row="4"
+TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            Clicked="Go_To_PasswordSettingsPage"
+HorizontalOptions="FillAndExpand"
+ShowIcon="True" 
+ImageSize="40"
+FontSize="20"
+Background="{AppThemeBinding Light=White, Dark=Black}"
+ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+        FontFamily="Icon"
+        Glyph="{x:Static Icon:IconFont.KeyAlert}"
+        Size="100"
+        Color="{AppThemeBinding Light=Black, Dark=White}"
+        />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+        
+        <buttons:SfButton 
+Text="Delete Account"
+Grid.Column="0" 
+Grid.Row="6"
+TextColor="{AppThemeBinding Light=Black, Dark=White}"
+HorizontalOptions="FillAndExpand"
+ShowIcon="True" 
+ImageSize="40"
+FontSize="20"
+Background="{AppThemeBinding Light=White, Dark=Black}"
+             Clicked="Go_To_DeleteAccountPage"
+ImageAlignment="Left">
+            <buttons:SfButton.ImageSource>
+                <FontImageSource
+        FontFamily="Icon"
+        Glyph="{x:Static Icon:IconFont.AccountCancel}"
+        Size="100"
+        Color="{AppThemeBinding Light=Black, Dark=White}"
+        />
+            </buttons:SfButton.ImageSource>
+        </buttons:SfButton>
+
+    </Grid>
+</ContentPage>

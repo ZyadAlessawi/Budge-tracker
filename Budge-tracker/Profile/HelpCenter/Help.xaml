@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Profile.HelpCenter.Help"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+              xmlns:tabView="clr-namespace:Syncfusion.Maui.Toolkit.TabView;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:Icon="clr-namespace:Essential_Lib.Icons;assembly=Essential_Lib"
+             Title="Help"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#00D09E">
+
+    <Shell.TitleView>
+        <Label 
+     Text="Help Center" 
+     VerticalTextAlignment="Center" 
+     HorizontalTextAlignment="Center" 
+     FontSize="20"
+     FontAttributes="Bold"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Notification" Order="Primary"  Clicked="Go_To_NotificationPage" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+               FontFamily="Icon"
+               Glyph="{x:Static Icon:IconFont.Bell}"
+               Size="30"
+               Color="{AppThemeBinding Light=Black, Dark=White}"
+               />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Resources>
+        <Style x:Key="BaseProfileButtonStyle"
+       TargetType="Button">
+
+            <Setter Property="Margin" Value="5, 10, 5, 10"/>
+
+            <Setter Property="ContentLayout" Value="Left"/>
+
+            <Setter Property="CornerRadius" Value="10"/>
+
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=Black}"/>
+
+            <Setter Property="FontSize" Value="20"/>
+
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+
+        </Style>
+
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
+                 Margin="0,0,0,0"
+                 Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                 CornerRadius="50,50,0,0"/>
+            <Label 
+                Text="How Can We Help You?"
+                HorizontalTextAlignment="Center"
+                Grid.Row="1"
+                FontSize="20"/>
+
+            <tabView:SfTabView 
+                x:Name="tabView" 
+                Grid.Row="2"  Grid.Column="0" 
+                IndicatorPlacement="Fill" 
+                IndicatorBackground="LightBlue"
+                IndicatorCornerRadius="20" 
+                HeaderHorizontalTextAlignment="Center"
+                TabBarHeight="80"
+                >
+
+                <tabView:SfTabView.Items>
+
+                    <tabView:SfTabItem Header="FAQ" FontSize="20">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout>
+                               <toolkit:Expander
+                                  Margin="0,20,0,0">
+                                <toolkit:Expander.Header>
+                                    <Label Text="How to use FinWise?"
+                                           FontAttributes="Bold"
+                                           FontSize="20" />
+                                </toolkit:Expander.Header>
+                                    <Label 
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                           FontSize="17"
+                                           BackgroundColor="#DFF7E2"
+                                           Margin="15"/>
+                            </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="How much does it cost to use FinWise?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                               FontSize="17"
+                                               BackgroundColor="#DFF7E2"
+                                               Margin="15"/>
+                            </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="How to contact support?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                               FontSize="17"
+                                               BackgroundColor="#DFF7E2"
+                                               Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="How can I reset my password if I forget it?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                               FontSize="17"
+                                               BackgroundColor="#DFF7E2"
+                                               Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="Are there any privacy or data security measures in place?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                               FontSize="17"
+                                               BackgroundColor="#DFF7E2"
+                                               Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="Can I customize settings within the application?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                               FontSize="17"
+                                               BackgroundColor="#DFF7E2"
+                                               Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                     Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="How can I delete my account?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                         Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                          FontSize="17"
+                                          BackgroundColor="#DFF7E2"
+                                          Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                     Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="How do I access my expense history?"
+                                                FontAttributes="Bold"
+                                                FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                        Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                        FontSize="17"
+                                        BackgroundColor="#DFF7E2"
+                                        Margin="15"/>
+                                </toolkit:Expander>
+
+                                <toolkit:Expander 
+                                    Margin="0,20,0,0">
+                                    <toolkit:Expander.Header>
+                                        <Label Text="Can I use the app offline?"
+                                               FontAttributes="Bold"
+                                               FontSize="20" />
+                                    </toolkit:Expander.Header>
+                                    <Label
+                                       Text="Lorem ipsum dolor sit amet. Et odio officia aut voluptate internos est omnis vitae ut architecto sunt non tenetur fuga ut provident vero." 
+                                       FontSize="17"
+                                       BackgroundColor="#DFF7E2"
+                                       Margin="15"/>
+                                </toolkit:Expander>
+                            </StackLayout>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+
+                    <tabView:SfTabItem Header="Contact Us" FontSize="20">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout>
+
+                                <buttons:SfButton 
+                                    x:Name="Food"
+                                    Text="Support"
+                                            Clicked="Go_To_AutoSupportPage"
+                                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                    HorizontalOptions="FillAndExpand"
+                                    ShowIcon="True" 
+                                    ImageSize="50"
+                                    FontSize="20"
+                                    Background="{AppThemeBinding Light=White, Dark=Black}"
+                                    ImageAlignment="Left">
+                                   <buttons:SfButton.ImageSource>
+                                       <FontImageSource
+                                            FontFamily="Icon"
+                                            Glyph="{x:Static Icon:IconFont.FaceAgent}"
+                                            Size="100"
+                                            Color="{AppThemeBinding Light=Black, Dark=White}"
+                                            />
+                                   </buttons:SfButton.ImageSource>
+                                </buttons:SfButton>
+
+                                <buttons:SfButton 
+                                     Text="Facebook"
+                                             Clicked="Go_To_Facebook"
+                                     Grid.Column="0" 
+                                     Grid.Row="3"
+                                     TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                     HorizontalOptions="FillAndExpand"
+                                     ShowIcon="True" 
+                                     ImageSize="50"
+                                     FontSize="20"
+                                     Background="{AppThemeBinding Light=White, Dark=Black}"
+                                     ImageAlignment="Left">
+                                    <buttons:SfButton.ImageSource>
+                                        <FontImageSource
+                                           FontFamily="Icon"
+                                           Glyph="{x:Static Icon:IconFont.Facebook}"
+                                           Size="100"
+                                           Color="{AppThemeBinding Light=Black, Dark=White}"
+                                           />
+                                    </buttons:SfButton.ImageSource>
+                                </buttons:SfButton>
+
+                            </StackLayout>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+
+                </tabView:SfTabView.Items>
+
+            </tabView:SfTabView>
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>

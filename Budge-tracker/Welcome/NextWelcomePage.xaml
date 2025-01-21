@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budge_tracker.Welcome.NextWelcomePage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+
+    <StackLayout BackgroundColor="#00D09E">
+
+        <Label 
+        Text="¿Are you ready to take control of your finaces?" 
+        HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+        VerticalOptions="Center" 
+        FontSize="30" 
+        Margin="0, 40, 0, 40" 
+        FontAttributes="Bold"/>
+
+        <Border 
+
+         BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+         Padding="36,50,16,0"
+         HorizontalOptions="FillAndExpand"
+         VerticalOptions="FillAndExpand"
+         Margin="0">
+
+            <Border.StrokeShape>
+
+                <RoundRectangle CornerRadius="50,50,0,0" />
+
+            </Border.StrokeShape>
+
+            <VerticalStackLayout>
+
+
+                <Image
+                Source="preview_2.png"
+                HorizontalOptions="Center"/>
+
+
+
+
+                <Button 
+                Text="Next" 
+                WidthRequest="250" 
+                HeightRequest="50" 
+                TextColor="#093030" 
+                BackgroundColor="#DFF7E2"
+                CornerRadius="50" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Margin="0, 30, 0, 50" 
+                FontSize="23"
+                Clicked="Go_To_HomePage"
+                FontAttributes="Bold"/>
+
+
+
+
+
+
+            </VerticalStackLayout>
+
+        </Border>
+
+    </StackLayout>
+    </ScrollView>
+
+</ContentPage>
